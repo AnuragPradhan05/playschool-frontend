@@ -13,8 +13,8 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/smartbiz",              
-            "baseHref": "/playschoolApp/",                   
+            "outputPath": "dist/playschoolApp",              
+            "baseHref": "/",                   
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
