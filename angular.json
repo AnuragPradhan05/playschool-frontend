@@ -14,7 +14,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/playschoolApp",              
-            "baseHref": "/",
+            "baseHref": "/playschoolApp/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
