@@ -1,3 +1,5 @@
-<button (click)="sendValue()">Send Value to Backend</button>
+<button (click)="sendValue()" [disabled]="loading">
+  {{ loading ? 'Sending...' : 'Send Value to Backend' }}
+</button>
 <p *ngIf="response !== null && response !== undefined">{{ response || 'No data returned' }}</p>
 

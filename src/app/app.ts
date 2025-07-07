@@ -13,6 +13,7 @@ export class App {
   protected title = 'playschoolApp';
   public helloResponse = '';
   public response: string | null = null;
+  loading = false;
 
 
   constructor(private helloService: HelloService, private cd: ChangeDetectorRef) {}
@@ -21,10 +22,12 @@ export class App {
       this.helloService.sendMessage('Hello from Angular').subscribe({
           next: res => {
             this.response = res;
+            this.loading = false;
             this.cd.detectChanges(); // 🔧 force UI update
           },
           error: err => {
             this.response = 'Error: ' + (err.message || 'Unknown error');
+            this.loading = false;
             this.cd.detectChanges();
           }
       });
