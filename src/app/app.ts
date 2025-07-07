@@ -11,17 +11,17 @@ import { NgIf } from '@angular/common';
 })
 export class App {
   protected title = 'playschoolApp';
-  public helloResponse: string | null = null;
+  public helloResponse = '';
 
   constructor(private helloService: HelloService) {}
 
   onHelloClick() {
-    this.helloService.hello().subscribe({
-      next: (res) => {
-        console.log("Response:", res);
-        this.helloResponse = res;
-      },
-      error: (err) => this.helloResponse = 'Error: ' + (err?.message || 'Unknown error')
-    });
+  this.helloService.hello().subscribe({
+    next: (res) => {
+      console.log("Response:", res);
+      this.helloResponse = res.message || JSON.stringify(res);
+    },
+    error: (err) => this.helloResponse = 'Error: ' + (err?.message || 'Unknown error')
+  });
   }
 }
