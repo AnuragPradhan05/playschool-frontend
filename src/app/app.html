@@ -1,2 +1,3 @@
 <button (click)="sendValue()">Send Value to Backend</button>
-<p *ngIf="response !== null">{{ response || 'No data received' }}</p>
+<p *ngIf="response !== null && response !== undefined">{{ response || 'No data returned' }}</p>
+
