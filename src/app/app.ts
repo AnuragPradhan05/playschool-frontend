@@ -17,7 +17,10 @@ export class App {
 
   onHelloClick() {
     this.helloService.hello().subscribe({
-      next: (res) => this.helloResponse = res,
+      next: (res) => {
+        console.log("Response:", res);
+        this.helloResponse = res;
+      },
       error: (err) => this.helloResponse = 'Error: ' + (err?.message || 'Unknown error')
     });
   }
