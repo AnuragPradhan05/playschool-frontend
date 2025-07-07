@@ -12,7 +12,8 @@ import { CommonModule } from '@angular/common';
 export class App {
   protected title = 'playschoolApp';
   public helloResponse = '';
-  response: string = '';
+  public response: string | null = null;
+
 
   constructor(private helloService: HelloService) {}
 
