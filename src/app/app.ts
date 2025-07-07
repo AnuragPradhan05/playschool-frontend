@@ -20,8 +20,7 @@ export class App {
   sendValue() {
       this.helloService.sendMessage('Hello from Angular').subscribe({
           next: res => {
-            this.response = null;
-            setTimeout(() => this.response = res, 0);
+            this.response = res;
             this.cd.detectChanges(); // 🔧 force UI update
           },
           error: err => {
