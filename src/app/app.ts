@@ -1,27 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HelloService } from './hello.service';
-import { NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIf],
+  imports: [CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected title = 'playschoolApp';
   public helloResponse = '';
+  response: string = '';
 
   constructor(private helloService: HelloService) {}
 
-  onHelloClick() {
-  this.helloService.hello().subscribe({
-    next: (res) => {
-      console.log("Response:", res);
-      this.helloResponse = res.message || JSON.stringify(res);
-    },
-    error: (err) => this.helloResponse = 'Error: ' + (err?.message || 'Unknown error')
-  });
-  }
+  sendValue() {
+      this.helloService.sendMessage('Hello from Angular').subscribe({
+        next: res => this.response = res,
+        error: err => this.response = 'Error: ' + (err.message || 'Unknown error')
+      });
+      }
 }

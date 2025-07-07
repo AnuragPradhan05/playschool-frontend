@@ -13,4 +13,9 @@ export class HelloService {
   hello(): Observable<any> {
     return this.http.get(`${this.apiUrl}/hello`, { responseType: 'text' });
   }
+
+  sendMessage(message: string): Observable<any> {
+  const payload = { message: message };
+  return this.http.post(`${this.apiUrl}/echo`, payload, { responseType: 'text' });
+}
 }
